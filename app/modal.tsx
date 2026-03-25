@@ -1,25 +1,23 @@
-import { Link } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { GamemodeModal, Gamemodes } from "@/utils/gamemodes";
+import { Stack, useLocalSearchParams } from "expo-router";
+import { StyleSheet } from "react-native";
 
 export default function ModalScreen() {
+  const { gamemodeKey } = useLocalSearchParams();
+  const gamemode = Gamemodes[gamemodeKey];
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
-      </Link>
-    </ThemedView>
+    <>
+      <Stack.Screen options={{ title: gamemode.title }} />
+      <GamemodeModal gamemode={gamemode} />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   link: {
