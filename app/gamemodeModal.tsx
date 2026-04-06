@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 export default function ModalScreen() {
-  const { gamemodeKey } = useLocalSearchParams();
+  const { gamemodeKey, language } = useLocalSearchParams();
   const gamemode = Gamemodes[gamemodeKey];
 
   const styles = StyleSheet.create({
@@ -90,7 +90,9 @@ export default function ModalScreen() {
             style={styles.playButton}
             onPress={() => {
               router.dismiss();
-              router.replace(`/gamePlay?gamemodeKey=${gamemodeKey}`);
+              router.replace(
+                `/gamePlay?gamemodeKey=${gamemodeKey}&language=${language}`,
+              );
             }}
           >
             <Text style={styles.playButtonText}>PLAY</Text>

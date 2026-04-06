@@ -57,7 +57,9 @@ export default function HomeScreen() {
         {/* Gamemode List */}
         <FlatList
           data={Object.entries(Gamemodes)}
-          renderItem={({ item }) => <GamemodeItem gamemode={item[1]} />}
+          renderItem={({ item }) => (
+            <GamemodeItem gamemode={item[1]} language={language} />
+          )}
           style={styles.gamemodeList}
           contentContainerStyle={{ gap: 10 }}
         />

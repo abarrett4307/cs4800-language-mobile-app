@@ -1,8 +1,21 @@
 export const Images = {
-    gamemode_airport: require('@/assets/images/gamemodes/airport.png'),
-    gamemode_restaurant: require('@/assets/images/gamemodes/restaurant.png'),
-    gamemode_taxi: require('@/assets/images/gamemodes/taxi.png'),
-    gamemode_date: require('@/assets/images/gamemodes/date.png'),
-    gamemode_cop: require('@/assets/images/gamemodes/cop.png'),
-    hero: require('@/assets/images/gamemodes/hero.png'),
-}
+  gamemode_airport: require("@/assets/images/gamemodes/airport.png"),
+  gamemode_restaurant: require("@/assets/images/gamemodes/restaurant.png"),
+  gamemode_taxi: require("@/assets/images/gamemodes/taxi.png"),
+  gamemode_date: require("@/assets/images/gamemodes/date.png"),
+  gamemode_cop: require("@/assets/images/gamemodes/cop.png"),
+  hero: require("@/assets/images/gamemodes/hero.png"),
+
+  avatar_taxi_happy: require("@/assets/images/avatars/taxi_happy.png"),
+  avatar_taxi_confused: require("@/assets/images/avatars/taxi_confused.png"),
+  avatar_taxi_angry: require("@/assets/images/avatars/taxi_angry.png"),
+  avatar_date_happy: require("@/assets/images/avatars/date_happy.png"),
+  avatar_date_confused: require("@/assets/images/avatars/date_confused.png"),
+  avatar_date_angry: require("@/assets/images/avatars/date_angry.png"),
+  avatar_cop_happy: require("@/assets/images/avatars/cop_happy.png"),
+  avatar_cop_confused: require("@/assets/images/avatars/cop_confused.png"),
+  avatar_cop_angry: require("@/assets/images/avatars/cop_angry.png"),
+  avatar_airport_happy: require("@/assets/images/avatars/airport_happy.png"),
+  avatar_airport_confused: require("@/assets/images/avatars/airport_confused.png"),
+  avatar_airport_angry: require("@/assets/images/avatars/airport_angry.png"),
+};
