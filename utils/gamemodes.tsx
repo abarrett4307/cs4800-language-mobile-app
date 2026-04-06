@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import { Images } from "./images";
+import { Language } from "./languages";
 import { useColors } from "./theme";
 
 export type GamemodeKey = "taxi" | "airport" | "date" | "cop";
@@ -22,6 +23,8 @@ export interface Gamemode {
   emoji: string;
   img?: number;
   topics: string[]; // conversation topics the AI will stick to
+  npcName?: string | null;
+  avatars?: object | null;
 }
 
 export const Gamemodes: Record<GamemodeKey, Gamemode> = {
@@ -35,6 +38,12 @@ export const Gamemodes: Record<GamemodeKey, Gamemode> = {
     emoji: "🚕",
     topics: ["weather", "local area", "football", "family", "work"],
     img: Images.gamemode_taxi,
+    npcName: "Taxi Driver",
+    avatars: {
+      happy: Images.avatar_taxi_happy,
+      confused: Images.avatar_taxi_confused,
+      angry: Images.avatar_taxi_angry,
+    },
   },
   cop: {
     gamemodeKey: "cop",
@@ -51,6 +60,12 @@ export const Gamemodes: Record<GamemodeKey, Gamemode> = {
       "staying calm",
     ],
     img: Images.gamemode_cop,
+    npcName: "Cop",
+    avatars: {
+      happy: Images.avatar_cop_happy,
+      confused: Images.avatar_cop_confused,
+      angry: Images.avatar_cop_angry,
+    },
   },
   airport: {
     gamemodeKey: "airport",
@@ -62,6 +77,12 @@ export const Gamemodes: Record<GamemodeKey, Gamemode> = {
     emoji: "✈️",
     topics: ["check-in", "luggage", "security", "delays", "boarding"],
     img: Images.gamemode_airport,
+    npcName: "Flight Attendant",
+    avatars: {
+      happy: Images.avatar_airport_happy,
+      confused: Images.avatar_airport_confused,
+      angry: Images.avatar_airport_angry,
+    },
   },
   date: {
     gamemodeKey: "date",
@@ -79,6 +100,12 @@ export const Gamemodes: Record<GamemodeKey, Gamemode> = {
       "awkward silences",
     ],
     img: Images.gamemode_date,
+    npcName: "Date",
+    avatars: {
+      happy: Images.avatar_date_happy,
+      confused: Images.avatar_date_confused,
+      angry: Images.avatar_date_angry,
+    },
   },
 };
 
@@ -91,7 +118,13 @@ interface GamemodeItemProps {
   img?: number;
 }
 
-export const GamemodeItem = ({ gamemode }: { gamemode: Gamemode }) => {
+export const GamemodeItem = ({
+  gamemode,
+  language,
+}: {
+  gamemode: Gamemode;
+  language: Language;
+}) => {
   console.log("key: ", gamemode.gamemodeKey);
   const styles = StyleSheet.create({
     topRow: {
@@ -139,7 +172,10 @@ export const GamemodeItem = ({ gamemode }: { gamemode: Gamemode }) => {
   });
 
   return (
-    <Link href={`/gamemodeModal?gamemodeKey=${gamemode.gamemodeKey}`} asChild>
+    <Link
+      href={`/gamemodeModal?gamemodeKey=${gamemode.gamemodeKey}&language=${language}`}
+      asChild
+    >
       <TouchableOpacity style={styles.container}>
         <View style={styles.info}>
           <Text style={styles.title}>{gamemode.title}</Text>
