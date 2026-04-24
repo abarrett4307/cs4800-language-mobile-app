@@ -328,6 +328,10 @@ export default function GameplayScreen() {
 
   const topicString = gamemode?.topics?.join(", ") || "general conversation";
 
+  const handleLeaveGame = useCallback(() => {
+    router.replace("/");
+  }, []);
+
   // Initial greeting from NPC
   useEffect(() => {
     const sendInitialGreeting = async () => {
@@ -798,7 +802,7 @@ export default function GameplayScreen() {
             {/* Leave Button */}
             <TouchableOpacity
               style={styles.leaveButton}
-              onPress={showLeaveAlert}
+              onPress={handleLeaveGame}
             >
               <Text style={styles.leaveButtonText}>Leave Game</Text>
             </TouchableOpacity>
